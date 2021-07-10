@@ -108,21 +108,28 @@ const Rooms = (props) => {
 
     function sendFile() {
         const peer = peerRef.current;
-        console.log('Sending', file);
-        file.arrayBuffer()
-        .then(buffer => {  
-        sendProgress.max = file.size
-        const chunkSize = 16 * 1024;
-        while(buffer.byteLength) {
-            const chunk = buffer.slice(0, chunkSize);
-            buffer = buffer.slice(chunkSize, buffer.byteLength);
-            offset += buffer.byteLength;
-            sendProgress.value = offset;
-            
-            peer.send(chunk);
+        const stream = file.stream();
+        const reader = stream.getReader();
+        try {
+            reader.read().then(obj => {
+                handlereading(obj.done, obj.value);
+            });
+    
+            function handlereading(done, value) {
+                if (done) {
+                    peer.write(JSON.stringify({ done: true, fileName: file.name }));
+                    return;
+                }
+    
+                peer.write(value);
+                reader.read().then(obj => {
+                    handlereading(obj.done, obj.value);
+                })
             }
-        peer.write(JSON.stringify({ done: true, fileName: file.name }));
-        });
+        } catch (error) {
+            alert("Sign up to share large files");
+        }
+        
     }
 
     //copy 

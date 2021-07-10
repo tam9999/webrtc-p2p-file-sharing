@@ -1,11 +1,11 @@
 export const apiUrl =
 	process.env.NODE_ENV !== 'production'
-		? 'https://localhost:300/api'
-		: 'https://sleepy-inlet- 6101.herokuapp.com/api'
+		? 'http://localhost:8000/api'
+		: 'https://webrtc-file-sharing.herokuapp.com/api'
 export const apiUrlRoom =
 	process.env.NODE_ENV !== 'production'
-		? 'https://webrtc-file-sharing.herokuapp.com'
-		: 'https://sleepy-inlet- 6101.herokuapp.com'
+		? 'http://localhost:8000'
+		: 'https://webrtc-file-sharing.herokuapp.com'
 
 export const LOCAL_STORAGE_TOKEN_NAME = 'webrtc-p2p'
 

@@ -59,7 +59,7 @@ const AddUserModal = () => {
 	}
 
 	return (
-		<Modal show={showAddUserModal} animation={false} onHide={closeDialog} >
+		<Modal show={showAddUserModal} onHide={closeDialog} >
 			<Modal.Header closeButton>
 				<Modal.Title>Create USer</Modal.Title>
 			</Modal.Header>
