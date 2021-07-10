@@ -9,7 +9,7 @@ const postRouter = require('./routes/post')
 const http = require("http");
 const app = express();
 const server = http.createServer(app);
-const socket = require("socket.io");
+const socket = require("socket.io")(PORT);
 const io = socket(server);
 
 const connectDB = async () => {

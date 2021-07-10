@@ -192,7 +192,7 @@ const Rooms = (props) => {
         <div>
             <h3 className='copy'>Once you have a peer connection, you will be able to share files</h3>
             <div className='qrcode'>
-                <QRCode  value={`${apiUrlRoom}/rooms/`+roomID}/>
+                <QRCode  value={`https://loving-hoover-4d081e.netlify.app/rooms/`+roomID}/>
             </div>
             <br/>
             <div className="copy">
@@ -200,10 +200,10 @@ const Rooms = (props) => {
                     type="text" 
                     id="text" 
                     className="copy"
-                    value={`${apiUrlRoom}/rooms/`+roomID}
+                    value={`https://loving-hoover-4d081e.netlify.app/rooms/`+roomID}
                     onChange={e => setInputValue(e.target.value)}    
                 />
-                    <CopyToClipboard text={`${apiUrlRoom}/rooms/`+roomID}>
+                    <CopyToClipboard text={`https://loving-hoover-4d081e.netlify.app/rooms/`+roomID}>
                         <Button className="icon"><i className="copy-text" class="material-icons" id="copy">content_copy</i></Button>
                     </CopyToClipboard>
             </div>
