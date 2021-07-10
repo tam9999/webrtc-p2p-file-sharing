@@ -1,0 +1,116 @@
+POST http://localhost:8000/api/auth/register
+Content-Type: application/json
+
+{
+  "mail": "tam2@gmail.com",
+  "username": "tam2",
+  "password": "123",
+  "role":1
+}
+
+###
+
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "henry",
+  "password": "henry"
+}
+
+###
+
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDYxYjk1YjdkMjljZTFiMTA5YmQxZTAiLCJpYXQiOjE2MTczNjIxNjV9.ZTwbrIeDpchmUjkNQv_bmBd7_Maw2Gp7Y1ioZx2s7i8
+
+{
+  "title": "React",
+  "description": "React",
+  "url": "react.com",
+  "status": "TO LEARN"
+}
+
+###
+
+GET http://localhost:8000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQwODgzODhmMTY2OWRmMzhlMTYzOTIiLCJpYXQiOjE2MjQ5NzQyMDJ9.EEWh5gvgv1rJpTLJ_KxElt5coOfCSci4WuWN5VLz7Ek
+
+###
+
+PUT http://localhost:5000/api/posts/6061c25ac2533d41dcae2b19
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDYxYjk1YjdkMjljZTFiMTA5YmQxZTAiLCJpYXQiOjE2MTcwMTk3ODF9.ri-nHdgZc1VQTocFLfMgF4_PhFf2TeUVqXLd8tpOkeA
+
+{
+  "title": "Vue",
+  "description": "VUEEEEE",
+  "url": "https://vuejs.org",
+  "status": "LEARNING"
+}
+
+###
+
+DELETE http://localhost:5000/api/posts/6061c25ac2533d41dcae2b19
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDYxYjk1YjdkMjljZTFiMTA5YmQxZTAiLCJpYXQiOjE2MTcwMTk3ODF9.ri-nHdgZc1VQTocFLfMgF4_PhFf2TeUVqXLd8tpOkeA
+
+### manage account
+###login
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "tam1",
+  "password": "123"
+}
+
+###get all user
+GET http://localhost:8000/api/auth/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOGU5NjkxMjVjM2UwM2EzNjc1NjkiLCJpYXQiOjE2MjU0OTIzOTZ9.gYOZ1H_uJSgq6Zz1hE_uBHChwQhkhihzfliJ8BTD_-I
+### delete for admin
+DELETE http://localhost:8000/api/auth/60e2ca06375e0c799c216061
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOGU5NjkxMjVjM2UwM2EzNjc1NjkiLCJpYXQiOjE2MjU0MTgwNjJ9.s8Jl2U6GEaim2Zusizc2sfL5jQ6QJjR-LjaPhqXhIlE
+
+### update for admin
+PUT http://localhost:8000/api/auth/60e09daa462ef6d5bf327672
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOGU5NjkxMjVjM2UwM2EzNjc1NjkiLCJpYXQiOjE2MjU0OTIzOTZ9.gYOZ1H_uJSgq6Zz1hE_uBHChwQhkhihzfliJ8BTD_-I
+
+{
+  "mail": "51703180@student.tdtu.edu.vn",
+  "username": "tam2",
+  "password": "123",
+  "role": 1
+}
+
+### profile
+GET http://localhost:8000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOTczNjljNzU3NWZjZGE0OTIzMmYiLCJpYXQiOjE2MjU0OTUyMzR9.vzSkozD2v8CFp158lpwIpdnsy2wynUoVNY-Ia7FrQAM
+
+###update profile
+PUT http://localhost:8000/api/auth/update/60dc97369c7575fcda49232f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOTczNjljNzU3NWZjZGE0OTIzMmYiLCJpYXQiOjE2MjU0OTUyMzR9.vzSkozD2v8CFp158lpwIpdnsy2wynUoVNY-Ia7FrQAM
+
+
+{
+  "mail": "tam1@gmail.com.vn",
+  "username": "tam1",
+  "password": "123"
+}
+
+### 
+GET http://localhost:8000/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOTczNjljNzU3NWZjZGE0OTIzMmYiLCJpYXQiOjE2MjU0OTQ5NzB9.15bACo9W6SLn75SqldDRk0OUX1OODkqNUKDDKz4Shnk
+
+### create user
+POST http://localhost:8000/api/auth/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGRjOGU5NjkxMjVjM2UwM2EzNjc1NjkiLCJpYXQiOjE2MjU0MDIzODh9.NOb7q2-RITli04ibrTDPZOn4SDRI1EJEOYTAJzylSEE
+
+{
+  "mail": "tam2@gmail.com",
+  "username": "tam2",
+  "password": "123",
+  "role":1
+}
