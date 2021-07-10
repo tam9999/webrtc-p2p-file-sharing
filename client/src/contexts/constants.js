@@ -1,10 +1,10 @@
 export const apiUrl =
 	process.env.NODE_ENV !== 'production'
-		? 'https://wertc-p2p.herokuapp.com/api'
+		? 'https://localhost:300/api'
 		: 'https://sleepy-inlet- 6101.herokuapp.com/api'
 export const apiUrlRoom =
 	process.env.NODE_ENV !== 'production'
-		? 'https://wertc-p2p.herokuapp.com'
+		? 'https://webrtc-file-sharing.herokuapp.com'
 		: 'https://sleepy-inlet- 6101.herokuapp.com'
 
 export const LOCAL_STORAGE_TOKEN_NAME = 'webrtc-p2p'
