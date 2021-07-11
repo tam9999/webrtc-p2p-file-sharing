@@ -6,14 +6,14 @@ const verifyToken = require('../middleware/auth')
 
 const User = require('../models/User')
 
-const checkRole = (req, res, next) => {
-	const role = req.data.role
-	if(role >= 3){
-		next()
-	}else{
-		res.json({ success: false, message: 'Not Permision' })
-	}
-}
+// const checkRole = (req, res, next) => {
+// 	const role = req.data.role
+// 	if(role >= 3){
+// 		next()
+// 	}else{
+// 		res.json({ success: false, message: 'Not Permision' })
+// 	}
+// }
 
 // @route GET api/auth
 // @desc Check if user is logged in
