@@ -108,28 +108,35 @@ const Rooms = (props) => {
 
     function sendFile() {
         const peer = peerRef.current;
-        const stream = file.stream();
-        const reader = stream.getReader();
-        try {
-            reader.read().then(obj => {
-                handlereading(obj.done, obj.value);
-            });
-    
-            function handlereading(done, value) {
-                if (done) {
-                    peer.write(JSON.stringify({ done: true, fileName: file.name }));
-                    return;
-                }
-    
-                peer.write(value);
-                reader.read().then(obj => {
-                    handlereading(obj.done, obj.value);
-                })
-            }
-        } catch (error) {
-            alert("Sign up to share large files");
-        }
+        console.log('Sending', file);
+        // We convert the file from Blob to ArrayBuffer
+        file.arrayBuffer()
+        .then(buffer => {
         
+        sendProgress.max = file.size
+        // console.log(file.size)
+        
+        const chunkSize = 16 * 1024;
+        // Keep chunking, and sending the chunks to the other peer
+        while(buffer.byteLength) {
+            const chunk = buffer.slice(0, chunkSize);
+            buffer = buffer.slice(chunkSize, buffer.byteLength);
+                    // Off goes the chunk!
+            offset += buffer.byteLength;
+            sendProgress.value = offset;
+            //console.log(buffer.byteLength)
+            peer.send(chunk);
+
+            
+            }
+        // End message to signal that all chunks have been sent
+        // pc = new RTCPeerConnection({ "iceServers": [{ "url": "stun:127.0.0.1:6120" }] })
+        // dc = pc.createDataChannel("channel")
+        // dc.send('123')
+        peer.write(JSON.stringify({ done: true, fileName: file.name }));
+        //console.log(file.name);
+        alert('Register to speed up file sharing')
+        });
     }
 
     //copy 
