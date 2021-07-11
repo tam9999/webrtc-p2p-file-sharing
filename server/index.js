@@ -9,8 +9,15 @@ const postRouter = require('./routes/post')
 const http = require("http");
 const app = express();
 const server = http.createServer(app);
-const socket = require("socket.io")('https://loving-hoover-4d081e.netlify.app');
-const io = socket(server);
+const socket = require("socket.io");
+const io = socket(server, {
+    cors: {
+        origin: `https://webrtc-file-sharing.herokuapp.com`,
+        methods: ["GET", "POST"],
+        credentials: true,
+        rejectUnauthorized: false
+    }
+});
 
 const connectDB = async () => {
 	try {
