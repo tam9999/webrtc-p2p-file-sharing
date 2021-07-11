@@ -12,7 +12,7 @@ const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server, {
     cors: {
-        origin: `https://webrtc-file-sharing.herokuapp.com`,
+        origin: `https://loving-hoover-4d081e.netlify.app`,
         methods: ["GET", "POST"],
         credentials: true,
         rejectUnauthorized: false
