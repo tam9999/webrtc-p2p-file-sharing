@@ -9,15 +9,8 @@ const postRouter = require('./routes/post')
 const http = require("http");
 const app = express();
 const server = http.createServer(app);
-const socket = require("socket.io")(process.env.PORT || 3000);
-const io = socket(server, {
-    cors: {
-        origin: `https://webrtc-file-sharing.herokuapp.com/`,
-        methods: ["GET", "POST"],
-        credentials: true,
-        rejectUnauthorized: false
-    }
-});
+const socket = require("socket.io");
+const io = socket(server);
 
 const connectDB = async () => {
 	try {
