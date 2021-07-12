@@ -49,7 +49,7 @@ const CreateRooms = (props) => {
                         value={inputValue}
                         onChange={e => setInputValue(e.target.value)}    
                     /> */}
-                    <Button className="joinRoom"><a className="joinRoom" href={inputValue} target="_self"></a>Join</Button>
+                    <Button className="joinRoom"><a className="btnjoinRoom" href={inputValue} target="_self">Join</a></Button>
                     </div>
                 </Form.Group>
             
